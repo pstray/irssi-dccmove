@@ -4,7 +4,7 @@
 
 use Irssi;
 use vars qw{$VERSION %IRSSI};
-($VERSION) = '$Revision: 1.2 $' =~ / (\d+\.\d+) /;
+($VERSION) = '$Revision: 1.3 $' =~ / (\d+\.\d+) /;
 %IRSSI = (
 	  name        => 'dccmove',
 	  authors     => 'Peder Stray',
@@ -19,7 +19,7 @@ sub sig_dcc_closed {
     my($dir,$file);
 
     return unless $dcc->{type} eq 'GET';
-    next unless -f $dcc->{file};
+    return unless -f $dcc->{file};
 
     ($dir,$file) = $dcc->{file} =~ m,(.*)/(.*),;
     $dir .= "/done";
