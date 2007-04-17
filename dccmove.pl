@@ -4,7 +4,7 @@
 
 use Irssi;
 use vars qw{$VERSION %IRSSI};
-($VERSION) = '$Revision: 1.3 $' =~ / (\d+\.\d+) /;
+($VERSION) = '$Revision: 1.4 $' =~ / (\d+\.\d+) /;
 %IRSSI = (
 	  name        => 'dccmove',
 	  authors     => 'Peder Stray',
@@ -39,4 +39,4 @@ sub sig_dcc_closed {
 
 }
 
-Irssi::signal_add('dcc closed', 'sig_dcc_closed');
+Irssi::signal_add_last('dcc closed', 'sig_dcc_closed');
